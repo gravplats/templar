@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\handlebars.runtime.js" />
     <Content Include="Scripts\templates-tester.js" />
     <Content Include="Scripts\file.js" />
     <Content Include="Scripts\global.js" />

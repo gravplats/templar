@@ -64,6 +64,7 @@
     <Compile Include="BundleExtensions.cs" />
     <Compile Include="BundlrHandler.cs" />
     <Compile Include="Compiler.cs" />
+    <Compile Include="HandlebarsCompiler.cs" />
     <Compile Include="HoganCompiler.cs" />
     <Compile Include="IContentSource.cs" />
     <Compile Include="BundlrScriptBundle.cs" />
@@ -84,6 +85,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\handlebars.compiler.js" />
+    <Content Include="Scripts\handlebars.js" />
     <Content Include="Scripts\hogan.compiler.js" />
     <Content Include="Scripts\hogan.js" />
     <Content Include="Scripts\underscore.compiler.js" />

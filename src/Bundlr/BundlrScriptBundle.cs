@@ -38,6 +38,14 @@ namespace Bundlr
             return Include(virtualPath);
         }
 
+        public BundlrScriptBundle IncludeHandlebarsTemplates(string url, string global, string virtualPath, string searchPattern = "*.mustache")
+        {
+            var compiler = new HandlebarsCompiler();
+            var source = new TemplateSource(global, compiler, new TemplateFinder(virtualPath, searchPattern));
+
+            return IncludeSource(url, source);
+        }
+
         public BundlrScriptBundle IncludeMustacheTemplates(string url, string global, string virtualPath, string searchPattern = "*.mustache")
         {
             var compiler = new HoganCompiler();

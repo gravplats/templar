@@ -62,6 +62,38 @@ namespace Bundlr.Scripts {
         
         /// <summary>
         ///   Looks up a localized string similar to /*
+        ///
+        ///Copyright (C) 2011 by Yehuda Katz
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to the following conditions:
+        ///
+        ///The above copyright notice a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string handlebars {
+            get {
+                return ResourceManager.GetString("handlebars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to var compile = function(template) {
+        ///    var spec = Handlebars.precompile(template);
+        ///    return Handlebars.template(spec);
+        ///};.
+        /// </summary>
+        internal static string handlebars_compiler {
+            get {
+                return ResourceManager.GetString("handlebars_compiler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /*
         /// *  Copyright 2011 Twitter, Inc.
         /// *  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
         /// *  you may not use this file except in compliance with the License.
@@ -118,8 +150,7 @@ namespace Bundlr.Scripts {
         
         /// <summary>
         ///   Looks up a localized string similar to var compile = function(template) {
-        ///    var tmpl = _.template(template);
-        ///    return tmpl.source;
+        ///    return _.template(template).source;
         ///};.
         /// </summary>
         internal static string underscore_compiler {

@@ -25,7 +25,8 @@ namespace Bundlr.Web.Application
 
             var bundle = new BundlrScriptBundle("~/js", virtualPathProvider)
                 .IncludePath("~/Scripts", 
-                    "hogan.js", 
+                    "hogan.js",
+                    "handlebars.runtime.js",
                     "underscore.js", 
                     "global.js", 
                     "file.js")
@@ -34,6 +35,7 @@ namespace Bundlr.Web.Application
                 // NOTE: please note handlers entry in Web.config which is used so we can 'map' a 'static' files to a routes.
                 .IncludeSource("Scripts/plain.js", new PlainSource("~/Scripts/plain.txt"))
                 .IncludeSource("Scripts/virtual.js", new VirtualSource())
+                .IncludeHandlebarsTemplates("Scripts/handlebars.templates.js", "window._handlebars", "~/Scripts")
                 .IncludeMustacheTemplates("Scripts/mustache.templates.js", "window._mustache", "~/Scripts")
                 .IncludeUnderscoreTemplates("Scripts/underscore.templates.js", "window._underscore", "~/Scripts")
                 .Include("~/Scripts/templates-tester.js")
