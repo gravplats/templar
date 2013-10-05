@@ -61,6 +61,7 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="BundleExtensions.cs" />
     <Compile Include="BundlrHandler.cs" />
     <Compile Include="Compiler.cs" />
     <Compile Include="HoganCompiler.cs" />

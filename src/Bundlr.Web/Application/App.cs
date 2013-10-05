@@ -24,10 +24,11 @@ namespace Bundlr.Web.Application
             BundleTable.VirtualPathProvider = virtualPathProvider;
 
             var bundle = new BundlrScriptBundle("~/js", virtualPathProvider)
-                .Include("~/Scripts/hogan.js")
-                .Include("~/Scripts/underscore.js")
-                .Include("~/Scripts/global.js")
-                .Include("~/Scripts/file.js")
+                .IncludePath("~/Scripts", 
+                    "hogan.js", 
+                    "underscore.js", 
+                    "global.js", 
+                    "file.js")
                 // non-existing files: when optimization is disabled this will map to a custom HTTP handler (BundlrHandler), 
                 // when optimization is enabled it will be bundled with the other files.
                 // NOTE: please note handlers entry in Web.config which is used so we can 'map' a 'static' files to a routes.
