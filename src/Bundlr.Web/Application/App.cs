@@ -7,6 +7,7 @@ namespace Bundlr.Web.Application
 {
     public class App : HttpApplication
     {
+        private static readonly string PlainJs = "Scripts/plain.js";
         private static readonly string VirtualJs = "Scripts/virtual.js";
 
         protected void Application_Start()
@@ -27,8 +28,10 @@ namespace Bundlr.Web.Application
 
             var bundle = new BundlrScriptBundle("~/js", virtualPathProvider)
                 .Include("~/Scripts/file.js")
-                // non-existing file: when optimization is disabled this will map to a controller, when enabled it will be bundled with the other files.
-                // NOTE: please note 'VirtualScriptHandler' entry in Web.config which is used so we can 'map' a 'static' file to a route.
+                // non-existing files: when optimization is disabled this will map to a controller action, when optimization is enabled
+                // it will be bundled with the other files.
+                // NOTE: please note handlers entry in Web.config which is used so we can 'map' a 'static' files to a routes.
+                .IncludeSource(PlainJs, new PlainSource("~/Scripts/plain.txt"))
                 .IncludeSource(VirtualJs, new VirtualSource());
 
             BundleTable.Bundles.Add(bundle);
@@ -44,6 +47,7 @@ namespace Bundlr.Web.Application
             var routes = RouteTable.Routes;
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(null, PlainJs, new { controller = "App", action = "PlainJs" });
             routes.MapRoute(null, VirtualJs, new { controller = "App", action = "VirtualJs" });
             routes.MapRoute(null, "{*url}", new { controller = "App", action = "Index" });
         }

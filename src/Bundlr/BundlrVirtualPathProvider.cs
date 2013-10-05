@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Caching;
 using System.Web.Hosting;
 
@@ -46,7 +47,9 @@ namespace Bundlr
         {
             if (sources.ContainsKey(virtualPath))
             {
-                string content = sources[virtualPath].GetContent();
+                var context = new HttpContextWrapper(HttpContext.Current);
+                string content = sources[virtualPath].GetContent(context);
+
                 return new BundlrVirtualFile(virtualPath, content);
             }
 

@@ -13,9 +13,16 @@ namespace Bundlr.Web.Application
         }
 
         [HttpGet]
+        public ActionResult PlainJs()
+        {
+            var content = new PlainSource("~/Scripts/plain.txt").GetContent(HttpContext);
+            return Content(content, "text/javascript");
+        }
+
+        [HttpGet]
         public ActionResult VirtualJs()
         {
-            var content = new VirtualSource().GetContent();
+            var content = new VirtualSource().GetContent(HttpContext);
             return Content(content, "text/javascript");
         }
     }
