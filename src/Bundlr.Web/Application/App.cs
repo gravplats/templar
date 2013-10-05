@@ -7,9 +7,6 @@ namespace Bundlr.Web.Application
 {
     public class App : HttpApplication
     {
-        private static readonly string PlainJs = "Scripts/plain.js";
-        private static readonly string VirtualJs = "Scripts/virtual.js";
-
         protected void Application_Start()
         {
             RegisterBundles();
@@ -27,12 +24,19 @@ namespace Bundlr.Web.Application
             BundleTable.VirtualPathProvider = virtualPathProvider;
 
             var bundle = new BundlrScriptBundle("~/js", virtualPathProvider)
+                .Include("~/Scripts/hogan.js")
+                .Include("~/Scripts/underscore.js")
+                .Include("~/Scripts/global.js")
                 .Include("~/Scripts/file.js")
                 // non-existing files: when optimization is disabled this will map to a custom HTTP handler (BundlrHandler), 
                 // when optimization is enabled it will be bundled with the other files.
                 // NOTE: please note handlers entry in Web.config which is used so we can 'map' a 'static' files to a routes.
-                .IncludeSource(PlainJs, new PlainSource("~/Scripts/plain.txt"))
-                .IncludeSource(VirtualJs, new VirtualSource());
+                .IncludeSource("Scripts/plain.js", new PlainSource("~/Scripts/plain.txt"))
+                .IncludeSource("Scripts/virtual.js", new VirtualSource())
+                .IncludeMustacheTemplates("Scripts/mustache.templates.js", "window._mustache", "~/Scripts")
+                .IncludeUnderscoreTemplates("Scripts/underscore.templates.js", "window._underscore", "~/Scripts")
+                .Include("~/Scripts/templates-tester.js")
+                ;
 
             BundleTable.Bundles.Add(bundle);
         }

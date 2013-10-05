@@ -37,5 +37,21 @@ namespace Bundlr
             virtualPathProvider.AddSource(virtualPath, source);
             return Include(virtualPath);
         }
+
+        public BundlrScriptBundle IncludeMustacheTemplates(string url, string global, string virtualPath, string searchPattern = "*.mustache")
+        {
+            var compiler = new HoganCompiler();
+            var source = new TemplateSource(global, compiler, new TemplateFinder(virtualPath, searchPattern));
+
+            return IncludeSource(url, source);
+        }
+
+        public BundlrScriptBundle IncludeUnderscoreTemplates(string url, string global, string virtualPath, string searchPattern = "*._")
+        {
+            var compiler = new UnderscoreCompiler();
+            var source = new TemplateSource(global, compiler, new TemplateFinder(virtualPath, searchPattern));
+
+            return IncludeSource(url, source);
+        }
     }
 }

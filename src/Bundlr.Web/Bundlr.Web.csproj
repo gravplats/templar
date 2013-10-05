@@ -93,8 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\templates-tester.js" />
     <Content Include="Scripts\file.js" />
+    <Content Include="Scripts\global.js" />
+    <Content Include="Scripts\hogan.js" />
     <Content Include="Scripts\plain.txt" />
+    <Content Include="Scripts\underscore.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -115,6 +119,12 @@
       <Project>{9068bf2a-34ac-492d-8589-c05298d41c3e}</Project>
       <Name>Bundlr</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\template.mustache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\template._" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
