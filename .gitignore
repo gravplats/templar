@@ -1,0 +1,10 @@
+_ReSharper.*
+bin
+obj
+build
+nuget
+packages
+release
+*.suo
+*.user
+*.cache
