@@ -47,10 +47,8 @@ namespace Bundlr
         {
             if (sources.ContainsKey(virtualPath))
             {
-                var context = new HttpContextWrapper(HttpContext.Current);
-                string content = sources[virtualPath].GetContent(context);
-
-                return new BundlrVirtualFile(virtualPath, content);
+                var source = sources[virtualPath];
+                return new BundlrVirtualFile(virtualPath, source);
             }
 
             return provider.GetFile(virtualPath);

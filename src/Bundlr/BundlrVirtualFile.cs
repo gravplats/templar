@@ -1,22 +1,26 @@
 ﻿using System.IO;
+using System.Web;
 using System.Web.Hosting;
 
 namespace Bundlr
 {
     public class BundlrVirtualFile : VirtualFile
     {
-        private readonly string content;
+        private readonly IContentSource source;
 
-        public BundlrVirtualFile(string virtualPath, string content)
+        public BundlrVirtualFile(string virtualPath, IContentSource source)
             : base(virtualPath)
         {
-            this.content = content;
+            this.source = source;
         }
 
         public override Stream Open()
         {
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream);
+
+            var context = new HttpContextWrapper(HttpContext.Current);
+            string content = source.GetContent(context);
 
             writer.Write(content);
             writer.Flush();
