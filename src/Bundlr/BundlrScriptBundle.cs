@@ -23,13 +23,13 @@ namespace Bundlr
             return base.IncludeDirectory(directoryVirtualPath, searchPattern, searchSubdirectories) as BundlrScriptBundle;
         }
 
-        public BundlrScriptBundle IncludeSource(string url, IContentSource source)
+        public BundlrScriptBundle IncludeSource(string virtualPath, IContentSource source)
         {
-            Ensure.NotNullOrEmpty(url, "url");
+            Ensure.NotNullOrEmpty(virtualPath, "virtualPath");
             Ensure.NotNull(source, "source");
 
-            // TODO: handle case where 'url' start with '~/'.
-            string virtualPath = "~/" + url;
+            // assume that the virtual path starts with '~/'.
+            string url = virtualPath.Substring(2);
 
             var route = new Route(url, new BundlrHandler(source));
             RouteTable.Routes.Add(route);
@@ -38,28 +38,28 @@ namespace Bundlr
             return Include(virtualPath);
         }
 
-        public BundlrScriptBundle IncludeHandlebarsTemplates(string url, string global, string virtualPath, string searchPattern = "*.mustache")
+        public BundlrScriptBundle IncludeHandlebarsTemplates(string virtualPath, string global, string templatesVirtualPath, string searchPattern = "*.mustache")
         {
             var compiler = new HandlebarsCompiler();
-            var source = new TemplateSource(global, compiler, new TemplateFinder(virtualPath, searchPattern));
+            var source = new TemplateSource(global, compiler, new TemplateFinder(templatesVirtualPath, searchPattern));
 
-            return IncludeSource(url, source);
+            return IncludeSource(virtualPath, source);
         }
 
-        public BundlrScriptBundle IncludeMustacheTemplates(string url, string global, string virtualPath, string searchPattern = "*.mustache")
+        public BundlrScriptBundle IncludeMustacheTemplates(string virtualPath, string global, string templatesVirtualPath, string searchPattern = "*.mustache")
         {
             var compiler = new HoganCompiler();
-            var source = new TemplateSource(global, compiler, new TemplateFinder(virtualPath, searchPattern));
+            var source = new TemplateSource(global, compiler, new TemplateFinder(templatesVirtualPath, searchPattern));
 
-            return IncludeSource(url, source);
+            return IncludeSource(virtualPath, source);
         }
 
-        public BundlrScriptBundle IncludeUnderscoreTemplates(string url, string global, string virtualPath, string searchPattern = "*._")
+        public BundlrScriptBundle IncludeUnderscoreTemplates(string virtualPath, string global, string templatesVirtualPath, string searchPattern = "*._")
         {
             var compiler = new UnderscoreCompiler();
-            var source = new TemplateSource(global, compiler, new TemplateFinder(virtualPath, searchPattern));
+            var source = new TemplateSource(global, compiler, new TemplateFinder(templatesVirtualPath, searchPattern));
 
-            return IncludeSource(url, source);
+            return IncludeSource(virtualPath, source);
         }
     }
 }
