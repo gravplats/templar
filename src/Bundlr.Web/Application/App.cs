@@ -17,9 +17,6 @@ namespace Bundlr.Web.Application
 
         private static void RegisterBundles()
         {
-            // uncomment to bundle in debug or better yet use '/?optimize=true'.
-            //BundleTable.EnableOptimizations = true;
-
             var virtualPathProvider = new BundlrVirtualPathProvider(BundleTable.VirtualPathProvider);
             BundleTable.VirtualPathProvider = virtualPathProvider;
 

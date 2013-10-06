@@ -28,11 +28,15 @@ namespace Bundlr
             Ensure.NotNullOrEmpty(virtualPath, "virtualPath");
             Ensure.NotNull(source, "source");
 
-            // assume that the virtual path starts with '~/'.
-            string url = virtualPath.Substring(2);
+            // don't expose the source when bundling.
+            if (!BundleTable.EnableOptimizations)
+            {
+                // assume that the virtual path starts with '~/'.
+                string url = virtualPath.Substring(2);
 
-            var route = new Route(url, new BundlrHandler(source));
-            RouteTable.Routes.Add(route);
+                var route = new Route(url, new BundlrHandler(source));
+                RouteTable.Routes.Add(route);
+            }
 
             virtualPathProvider.AddSource(virtualPath, source);
             return Include(virtualPath);
