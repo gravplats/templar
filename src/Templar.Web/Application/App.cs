@@ -48,6 +48,12 @@ namespace Templar.Web.Application
             BundleTable.Bundles.Add(hogan);
             BundleTable.Bundles.Add(underscore);
             BundleTable.Bundles.Add(test);
+
+            var dependencies = new TemplarDependencyScriptBundle("~/dep", virtualPathProvider)
+                .Include("~/assets/dependencies/e.js")
+                .IncludeDirectory("~/assets/dependencies", "*.js");
+
+            BundleTable.Bundles.Add(dependencies);
         }
 
         private static void RegisterFilters()
@@ -60,7 +66,8 @@ namespace Templar.Web.Application
             var routes = RouteTable.Routes;
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(null, "{*url}", new { controller = "App", action = "Index" });
+            routes.MapRoute(null, "dependencies", new { controller = "App", action = "Dependencies" });
+            routes.MapRoute(null, "", new { controller = "App", action = "Index" });
         }
 
         private static void RegisterViewEngines()

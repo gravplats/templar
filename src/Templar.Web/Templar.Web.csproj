@@ -94,6 +94,11 @@
     <Compile Include="Application\VirtualSource.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\dependencies\a.js" />
+    <Content Include="assets\dependencies\c.js" />
+    <Content Include="assets\dependencies\e.js" />
+    <Content Include="assets\dependencies\d.js" />
+    <Content Include="assets\dependencies\b.js" />
     <Content Include="Global.asax" />
     <Content Include="assets\handlebars.runtime.js" />
     <Content Include="assets\templates-test.js" />
@@ -128,6 +133,9 @@
       <Project>{9068bf2a-34ac-492d-8589-c05298d41c3e}</Project>
       <Name>Templar</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dependencies.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

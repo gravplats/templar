@@ -62,6 +62,8 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BundleExtensions.cs" />
+    <Compile Include="DependencyOrderer.cs" />
+    <Compile Include="TemplarDependencyScriptBundle.cs" />
     <Compile Include="TemplarHandler.cs" />
     <Compile Include="Compiler.cs" />
     <Compile Include="HandlebarsCompiler.cs" />

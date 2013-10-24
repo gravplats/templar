@@ -64,4 +64,32 @@ namespace Templar.Tests
             });
         }
     }
+
+    public class When_requesting_dependencies : UserStory
+    {
+        [Then("should include all scripts in bundle based on dependency order")]
+        protected override void Test()
+        {
+            Application.Execute(client =>
+            {
+                var response = client.Get("/dependencies");
+                response.ShouldHaveStatusCode(HttpStatusCode.OK);
+
+                var scripts = response
+                    .AsCsQuery()
+                    .Find("script")
+                    .SelectionHtml()
+                    .Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Trim());
+
+                scripts.ShouldContainerInOrder(
+                    "<script src=\"/assets/dependencies/e.js\"></script>",
+                    "<script src=\"/assets/dependencies/b.js\"></script>",
+                    "<script src=\"/assets/dependencies/d.js\"></script>",
+                    "<script src=\"/assets/dependencies/c.js\"></script>",
+                    "<script src=\"/assets/dependencies/a.js\"></script>"
+                );
+            });
+        }
+    }
 }

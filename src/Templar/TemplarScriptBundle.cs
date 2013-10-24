@@ -1,4 +1,5 @@
-﻿using System.Web.Optimization;
+﻿using System.Web;
+using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace Templar
@@ -13,9 +14,9 @@ namespace Templar
             this.virtualPathProvider = Ensure.NotNull(virtualPathProvider, "virtualPathProvider");
         }
 
-        public new TemplarScriptBundle Include(params string[] virtualPath)
+        public virtual new TemplarScriptBundle Include(params string[] virtualPaths)
         {
-            return base.Include(virtualPath) as TemplarScriptBundle;
+            return base.Include(virtualPaths) as TemplarScriptBundle;
         }
 
         public new TemplarScriptBundle IncludeDirectory(string directoryVirtualPath, string searchPattern, bool searchSubdirectories = false)
@@ -23,9 +24,25 @@ namespace Templar
             return base.IncludeDirectory(directoryVirtualPath, searchPattern, searchSubdirectories) as TemplarScriptBundle;
         }
 
-        public TemplarScriptBundle IncludeSource(string virtualPath, IContentSource source)
+        public TemplarScriptBundle IncludePath(string root, params string[] files)
         {
-            Ensure.NotNullOrEmpty(virtualPath, "virtualPath");
+            if (!root.EndsWith("/"))
+            {
+                root = root + "/";
+            }
+
+            foreach (string file in files)
+            {
+                string path = VirtualPathUtility.Combine(root, file);
+                Include(path);
+            }
+
+            return this;
+        }
+
+        public virtual TemplarScriptBundle IncludeSource(string virtualPath, IContentSource source)
+        {
+            Ensure.NotNullOrEmpty(virtualPath, "virtualPaths");
             Ensure.NotNull(source, "source");
 
             // don't expose the source when bundling.

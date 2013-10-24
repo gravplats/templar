@@ -11,5 +11,11 @@ namespace Templar.Web.Application
             BundleTable.EnableOptimizations = optimize;
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Dependencies()
+        {
+            return View();
+        }
     }
 }
