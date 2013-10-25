@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Web;
 
 namespace Bundlr
@@ -24,18 +26,27 @@ namespace Bundlr
                 writer.WriteLine("!function() {");
                 writer.WriteLine("  var templates = {0}.templates = {{}};", global);
 
-                foreach (var template in templates)
+                var results = Compile(templates);
+                foreach (var result in results)
                 {
-                    string name = template.GetName();
-                    string content = compiler.Compile(template.GetContent());
-
-                    writer.WriteLine("  templates['{0}'] = {1};", name, content);
+                    writer.WriteLine(result);
                 }
 
                 writer.WriteLine("}();");
 
                 return writer.ToString();
             }
+        }
+
+        private IEnumerable<string> Compile(IEnumerable<Template> templates)
+        {
+            return templates.AsParallel().Select(template =>
+            {
+                string name = template.GetName();
+                string content = compiler.Compile(template.GetContent());
+
+                return string.Format("  templates['{0}'] = {1};", name, content);
+            });
         }
     }
 }
