@@ -2,7 +2,7 @@ include .\extensions.ps1
 
 properties {
     # name of solution and nuspec.
-    $name                   = "Bundlr"
+    $name                   = "Templar"
     $version                = "0.1"
 
     # files that should be part of the nuget.

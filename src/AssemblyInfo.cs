@@ -11,9 +11,9 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
-[assembly: AssemblyTitle("Bundlr")]
+[assembly: AssemblyTitle("Templar")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyProduct("Bundlr")]
+[assembly: AssemblyProduct("Templar")]
 [assembly: AssemblyCopyright("Copyright (c) Mattias Rydengren 2013")]
 [assembly: AssemblyVersion("0.1")]
 [assembly: AssemblyInformationalVersion("0.1")]
