@@ -93,13 +93,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Scripts\handlebars.runtime.js" />
-    <Content Include="Scripts\templates-tester.js" />
-    <Content Include="Scripts\file.js" />
-    <Content Include="Scripts\global.js" />
-    <Content Include="Scripts\hogan.js" />
-    <Content Include="Scripts\plain.txt" />
-    <Content Include="Scripts\underscore.js" />
+    <Content Include="assets\handlebars.runtime.js" />
+    <Content Include="assets\templates-test.js" />
+    <Content Include="assets\file.js" />
+    <Content Include="assets\global.js" />
+    <Content Include="assets\hogan.js" />
+    <Content Include="assets\plain.txt" />
+    <Content Include="assets\underscore.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -122,10 +122,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\template.mustache" />
+    <Content Include="assets\template.mustache" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\template._" />
+    <Content Include="assets\template._" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

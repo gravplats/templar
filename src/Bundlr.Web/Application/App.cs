@@ -20,24 +20,34 @@ namespace Bundlr.Web.Application
             var virtualPathProvider = new BundlrVirtualPathProvider(BundleTable.VirtualPathProvider);
             BundleTable.VirtualPathProvider = virtualPathProvider;
 
-            var bundle = new BundlrScriptBundle("~/js", virtualPathProvider)
-                .IncludePath("~/Scripts",
-                    "hogan.js",
-                    "handlebars.runtime.js",
-                    "underscore.js",
-                    "global.js",
-                    "file.js")
-                // non-existing files: when optimization is disabled this will map to a custom HTTP handler (BundlrHandler), 
-                // when optimization is enabled it will be bundled with the other files.
+            var js = new BundlrScriptBundle("~/js", virtualPathProvider)
+                .IncludePath("~/assets", "global.js", "file.js")
+                // non-existing files: when optimization is disabled these will map to a custom HTTP handler (BundlrHandler), 
+                // when optimization is enabled they will be bundled with the other files.
                 // NOTE: please note handlers entry in Web.config which is used so we can 'map' a 'static' files to a routes.
-                .IncludeSource("~/Scripts/plain.js", new PlainSource("~/Scripts/plain.txt"))
-                .IncludeSource("~/Scripts/virtual.js", new VirtualSource())
-                .IncludeHandlebarsTemplates("~/Scripts/handlebars.templates.js", "window._handlebars", "~/Scripts")
-                .IncludeMustacheTemplates("~/Scripts/mustache.templates.js", "window._mustache", "~/Scripts")
-                .IncludeUnderscoreTemplates("~/Scripts/underscore.templates.js", "window._underscore", "~/Scripts")
-                .Include("~/Scripts/templates-tester.js");
+                .IncludeSource("~/assets/plain.js", new PlainSource("~/assets/plain.txt"))
+                .IncludeSource("~/assets/virtual.js", new VirtualSource());
 
-            BundleTable.Bundles.Add(bundle);
+            var handlebars = new BundlrScriptBundle("~/handlebars", virtualPathProvider)
+                .IncludePath("~/assets", "handlebars.runtime.js")
+                .IncludeHandlebarsTemplates("~/assets/handlebars.templates.js", "window._templates_handlebars", "~/assets", "*.mustache");
+
+            var hogan = new BundlrScriptBundle("~/hogan", virtualPathProvider)
+                .IncludePath("~/assets", "hogan.js")
+                .IncludeMustacheTemplates("~/assets/mustache.templates.js", "window._templates_mustache", "~/assets", "*.mustache");
+
+            var underscore = new BundlrScriptBundle("~/underscore", virtualPathProvider)
+                .IncludePath("~/assets", "underscore.js")
+                .IncludeUnderscoreTemplates("~/assets/underscore.templates.js", "window._templates_underscore", "~/assets", "*._");
+
+            var test = new BundlrScriptBundle("~/test", virtualPathProvider)
+                .IncludePath("~/assets", "templates-test.js");
+
+            BundleTable.Bundles.Add(js);
+            BundleTable.Bundles.Add(handlebars);
+            BundleTable.Bundles.Add(hogan);
+            BundleTable.Bundles.Add(underscore);
+            BundleTable.Bundles.Add(test);
         }
 
         private static void RegisterFilters()
