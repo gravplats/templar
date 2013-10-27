@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace Bundlr.Tests
@@ -62,6 +63,11 @@ namespace Bundlr.Tests
         public static void ShouldBeLessThan(this object actual, object expected)
         {
             Assert.That(actual, Is.LessThan(expected));
+        }
+
+        public static void ShouldContainerInOrder<T>(this IEnumerable<T> actual, params T[] expected)
+        {
+            CollectionAssert.AreEqual(actual, expected);
         }
     }
 }
