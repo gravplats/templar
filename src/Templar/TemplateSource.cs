@@ -40,7 +40,7 @@ namespace Templar
 
         private IEnumerable<string> Compile(IEnumerable<Template> templates)
         {
-            return templates.AsParallel().Select(template =>
+            return templates.Select(template =>
             {
                 string name = template.GetName();
                 string content = compiler.Compile(template.GetContent());
