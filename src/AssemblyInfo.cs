@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
 [assembly: AssemblyTitle("Templar")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Provide pre-compilation support for HTML templates for the Microsoft ASP.NET Web Optimization Framework")]
 [assembly: AssemblyProduct("Templar")]
 [assembly: AssemblyCopyright("Copyright (c) Mattias Rydengren 2013")]
 [assembly: AssemblyVersion("0.1")]
