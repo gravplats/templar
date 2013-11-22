@@ -6,8 +6,8 @@
     <description>Provide pre-compilation support for HTML templates for the Microsoft ASP.NET Web Optimization Framework</description>
     <authors>Mattias Rydengren</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <licenseUrl></licenseUrl>
-    <projectUrl></projectUrl>
+    <licenseUrl>https://github.com/mrydengren/templar/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mrydengren/templar</projectUrl>
     <tags>bundling javascript optimization template templates templating handlebars handlebarsjs handlebars.js hogan hoganjs hogan.js mustache mustachejs mustache.js underscore underscorejs underscore.js</tags>
     <dependencies>
         <dependency id="Jurassic" version="2.1" />
