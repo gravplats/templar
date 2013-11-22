@@ -5,11 +5,11 @@ The project uses [psake](https://github.com/JamesKovacs/psake) by [James Kovacs]
 
 The project can be built by executing build script.
 
-	> .\build.ps1
+	> .\packages\psake.4.2.0.1\tools\psake.ps1
 
 This will build the default task which is the build task. To build any other task (clean, build, nuget) run the following command.
 
-	> .\build.ps1 [task]
+	> .\packages\psake.4.2.0.1\tools\psake.ps1 [task]
 
 Note: You may need to allow script execution by running the following command as an administrator in PowerShell
 
