@@ -3,7 +3,7 @@
   <metadata>
     <id>Templar</id>
     <version>The version is updated by the build system</version>
-    <description>Provide pre-compilation support for HTML templates for the Microsoft ASP.NET Web Optimization Framework</description>
+    <description>Templar provides support for pre-compiled HTML templates for the Microsoft ASP.NET Web Optimization Framework.</description>
     <authors>Mattias Rydengren</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://github.com/mrydengren/templar/blob/master/LICENSE</licenseUrl>
