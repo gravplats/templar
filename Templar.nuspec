@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/mrydengren/templar</projectUrl>
     <tags>bundling javascript optimization template templates templating handlebars handlebarsjs handlebars.js hogan hoganjs hogan.js mustache mustachejs mustache.js underscore underscorejs underscore.js</tags>
     <dependencies>
-        <dependency id="Jurassic" version="2.1" />
+        <dependency id="Jurassic" version="2.2" />
         <dependency id="Microsoft.AspNet.Web.Optimization" version="1.1" />
         <dependency id="Microsoft.Web.Infrastructure" version="1.0" />
         <dependency id="WebGrease" version="1.3" />
