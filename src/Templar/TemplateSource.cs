@@ -7,6 +7,8 @@ namespace Templar
 {
     public class TemplateSource : IContentSource
     {
+        private static readonly object PadLock = new object();
+
         private readonly string global;
         private readonly Compiler compiler;
         private readonly TemplateFinder finder;
@@ -20,21 +22,27 @@ namespace Templar
 
         public string GetContent(HttpContextBase httpContext)
         {
-            var templates = finder.Find(httpContext);
-            using (var writer = new StringWriter())
+            // the ScriptEngine doesn't seem to be a big fan of operating in multiple threads at the same time(?), which
+            // happens when we reload a page in multiple windows as the same time ; probably need to re-visit this in the 
+            // future.
+            lock (PadLock)
             {
-                writer.WriteLine("!function() {");
-                writer.WriteLine("  var templates = {0}.templates = {{}};", global);
-
-                var results = Compile(templates);
-                foreach (var result in results)
+                var templates = finder.Find(httpContext);
+                using (var writer = new StringWriter())
                 {
-                    writer.WriteLine(result);
+                    writer.WriteLine("!function() {");
+                    writer.WriteLine("  var templates = {0}.templates = {{}};", global);
+
+                    var results = Compile(templates);
+                    foreach (var result in results)
+                    {
+                        writer.WriteLine(result);
+                    }
+
+                    writer.WriteLine("}();");
+
+                    return writer.ToString();
                 }
-
-                writer.WriteLine("}();");
-
-                return writer.ToString();
             }
         }
 
