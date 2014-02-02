@@ -1,18 +1,8 @@
-﻿using Jurassic;
-using Templar.Scripts;
-
-namespace Templar
+﻿namespace Templar
 {
     public class HandlebarsCompiler : Compiler
     {
-        private readonly ScriptEngine engine;
-
-        public HandlebarsCompiler()
-        {
-            engine = new ScriptEngine();
-            engine.Execute(Resources.Handlebars);
-            engine.Execute(Resources.HandlebarsCompiler);
-        }
+        public HandlebarsCompiler(string script, string compiler) : base(script, compiler) { }
 
         public override string Compile(string content)
         {

@@ -1,18 +1,8 @@
-﻿using Jurassic;
-using Templar.Scripts;
-
-namespace Templar
+﻿namespace Templar
 {
     public class UnderscoreCompiler : Compiler
     {
-        private readonly ScriptEngine engine;
-
-        public UnderscoreCompiler()
-        {
-            engine = new ScriptEngine();
-            engine.Execute(Resources.Underscore);
-            engine.Execute(Resources.UnderscoreCompiler);
-        }
+        public UnderscoreCompiler(string script, string compiler) : base(script, compiler) { }
 
         public override string Compile(string content)
         {

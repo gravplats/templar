@@ -1,18 +1,8 @@
-﻿using Jurassic;
-using Templar.Scripts;
-
-namespace Templar
+﻿namespace Templar
 {
     public class HoganCompiler : Compiler
     {
-        private readonly ScriptEngine engine;
-
-        public HoganCompiler()
-        {
-            engine = new ScriptEngine();
-            engine.Execute(Resources.Hogan);
-            engine.Execute(Resources.HoganCompiler);
-        }
+        public HoganCompiler(string script, string compiler) : base(script, compiler) { }
 
         public override string Compile(string content)
         {

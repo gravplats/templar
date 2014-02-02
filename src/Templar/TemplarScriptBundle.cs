@@ -1,6 +1,9 @@
-﻿using System.Web;
+﻿using System;
+using System.IO;
+using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Templar.Scripts;
 
 namespace Templar
 {
@@ -59,28 +62,28 @@ namespace Templar
             return Include(virtualPath);
         }
 
+        public TemplarScriptBundle IncludeHtmlTemplates(string virtualPath, string global, string templatesVirtualPath, Action<ITemplatingOptions> customize)
+        {
+            var options = new TemplatingOptions();
+            customize(options);
+
+            var source = options.GetTemplateSource(virtualPath, global, templatesVirtualPath);
+            return IncludeSource(virtualPath, source);
+        }
+
         public TemplarScriptBundle IncludeHandlebarsTemplates(string virtualPath, string global, string templatesVirtualPath, string searchPattern = "*.mustache")
         {
-            var compiler = new HandlebarsCompiler();
-            var source = new TemplateSource(global, compiler, new TemplateFinder(templatesVirtualPath, searchPattern));
-
-            return IncludeSource(virtualPath, source);
+            return IncludeHtmlTemplates(virtualPath, global, templatesVirtualPath, opt => opt.WithHandlebars().WithSearchPattern(searchPattern));
         }
 
         public TemplarScriptBundle IncludeMustacheTemplates(string virtualPath, string global, string templatesVirtualPath, string searchPattern = "*.mustache")
         {
-            var compiler = new HoganCompiler();
-            var source = new TemplateSource(global, compiler, new TemplateFinder(templatesVirtualPath, searchPattern));
-
-            return IncludeSource(virtualPath, source);
+            return IncludeHtmlTemplates(virtualPath, global, templatesVirtualPath, opt => opt.WithHogan().WithSearchPattern(searchPattern));
         }
 
         public TemplarScriptBundle IncludeUnderscoreTemplates(string virtualPath, string global, string templatesVirtualPath, string searchPattern = "*._")
         {
-            var compiler = new UnderscoreCompiler();
-            var source = new TemplateSource(global, compiler, new TemplateFinder(templatesVirtualPath, searchPattern));
-
-            return IncludeSource(virtualPath, source);
+            return IncludeHtmlTemplates(virtualPath, global, templatesVirtualPath, opt => opt.WithUnderscore().WithSearchPattern(searchPattern));
         }
     }
 }
