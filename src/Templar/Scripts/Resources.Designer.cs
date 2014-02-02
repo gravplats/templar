@@ -22,24 +22,24 @@ namespace Templar.Scripts {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class _Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal _Resources() {
+        internal Resources() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Templar.Scripts._Resources", typeof(_Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Templar.Scripts.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Templar.Scripts {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,7 +61,9 @@ namespace Templar.Scripts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /*
+        ///   Looks up a localized string similar to /*!
+        ///
+        /// handlebars v1.3.0
         ///
         ///Copyright (C) 2011 by Yehuda Katz
         ///
@@ -72,11 +74,11 @@ namespace Templar.Scripts {
         ///copies of the Software, and to permit persons to whom the Software is
         ///furnished to do so, subject to the following conditions:
         ///
-        ///The above copyright notice a [rest of string was truncated]&quot;;.
+        ///The above copyrigh [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string handlebars {
+        public static string Handlebars {
             get {
-                return ResourceManager.GetString("handlebars", resourceCulture);
+                return ResourceManager.GetString("Handlebars", resourceCulture);
             }
         }
         
@@ -85,9 +87,9 @@ namespace Templar.Scripts {
         ///    return Handlebars.precompile(template);
         ///};.
         /// </summary>
-        internal static string handlebars_compiler {
+        public static string HandlebarsCompiler {
             get {
-                return ResourceManager.GetString("handlebars_compiler", resourceCulture);
+                return ResourceManager.GetString("HandlebarsCompiler", resourceCulture);
             }
         }
         
@@ -105,9 +107,9 @@ namespace Templar.Scripts {
         /// *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
         /// *  See the  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string hogan {
+        public static string Hogan {
             get {
-                return ResourceManager.GetString("hogan", resourceCulture);
+                return ResourceManager.GetString("Hogan", resourceCulture);
             }
         }
         
@@ -116,9 +118,9 @@ namespace Templar.Scripts {
         ///    return Hogan.compile(template, { asString: true });
         ///};.
         /// </summary>
-        internal static string hogan_compiler {
+        public static string HoganCompiler {
             get {
-                return ResourceManager.GetString("hogan_compiler", resourceCulture);
+                return ResourceManager.GetString("HoganCompiler", resourceCulture);
             }
         }
         
@@ -141,9 +143,9 @@ namespace Templar.Scripts {
         ///
         ///    // Establish the [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string underscore {
+        public static string Underscore {
             get {
-                return ResourceManager.GetString("underscore", resourceCulture);
+                return ResourceManager.GetString("Underscore", resourceCulture);
             }
         }
         
@@ -152,9 +154,9 @@ namespace Templar.Scripts {
         ///    return _.template(template).source;
         ///};.
         /// </summary>
-        internal static string underscore_compiler {
+        public static string UnderscoreCompiler {
             get {
-                return ResourceManager.GetString("underscore_compiler", resourceCulture);
+                return ResourceManager.GetString("UnderscoreCompiler", resourceCulture);
             }
         }
     }

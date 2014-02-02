@@ -10,8 +10,8 @@ namespace Templar
         public HoganCompiler()
         {
             engine = new ScriptEngine();
-            engine.Execute(_Resources.hogan);
-            engine.Execute(_Resources.hogan_compiler);
+            engine.Execute(Resources.Hogan);
+            engine.Execute(Resources.HoganCompiler);
         }
 
         public override string Compile(string content)

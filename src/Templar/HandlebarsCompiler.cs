@@ -10,8 +10,8 @@ namespace Templar
         public HandlebarsCompiler()
         {
             engine = new ScriptEngine();
-            engine.Execute(_Resources.handlebars);
-            engine.Execute(_Resources.handlebars_compiler);
+            engine.Execute(Resources.Handlebars);
+            engine.Execute(Resources.HandlebarsCompiler);
         }
 
         public override string Compile(string content)

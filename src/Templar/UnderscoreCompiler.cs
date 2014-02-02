@@ -10,8 +10,8 @@ namespace Templar
         public UnderscoreCompiler()
         {
             engine = new ScriptEngine();
-            engine.Execute(_Resources.underscore);
-            engine.Execute(_Resources.underscore_compiler);
+            engine.Execute(Resources.Underscore);
+            engine.Execute(Resources.UnderscoreCompiler);
         }
 
         public override string Compile(string content)

@@ -74,10 +74,10 @@
     <Compile Include="TemplarVirtualFile.cs" />
     <Compile Include="TemplarVirtualPathProvider.cs" />
     <Compile Include="Ensure.cs" />
-    <Compile Include="Scripts\_Resources.Designer.cs">
+    <Compile Include="Scripts\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_Resources.resx</DependentUpon>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Template.cs" />
     <Compile Include="TemplateFinder.cs" />
@@ -96,9 +96,9 @@
     <Content Include="Scripts\underscore.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\_Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>_Resources.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Scripts\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

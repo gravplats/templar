@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="handlebars" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Handlebars" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>handlebars.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="handlebars_compiler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="HandlebarsCompiler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>handlebars.compiler.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="hogan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Hogan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>hogan.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="hogan_compiler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="HoganCompiler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>hogan.compiler.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="underscore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Underscore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>underscore.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="underscore_compiler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="UnderscoreCompiler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>underscore.compiler.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>
