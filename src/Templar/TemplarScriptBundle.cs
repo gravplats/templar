@@ -22,7 +22,7 @@ namespace Templar
             return base.Include(virtualPaths) as TemplarScriptBundle;
         }
 
-        public new TemplarScriptBundle IncludeDirectory(string directoryVirtualPath, string searchPattern, bool searchSubdirectories = false)
+        public new TemplarScriptBundle IncludeDirectory(string directoryVirtualPath, string searchPattern, bool searchSubdirectories = true)
         {
             return base.IncludeDirectory(directoryVirtualPath, searchPattern, searchSubdirectories) as TemplarScriptBundle;
         }
