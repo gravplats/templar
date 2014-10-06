@@ -1,9 +1,7 @@
 ﻿using System;
-using System.IO;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Templar.Scripts;
 
 namespace Templar
 {
