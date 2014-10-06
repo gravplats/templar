@@ -8,7 +8,7 @@ namespace Templar
 {
     public class TemplarVirtualPathProvider : VirtualPathProvider
     {
-        private readonly Dictionary<string, IContentSource> sources = new Dictionary<string, IContentSource>();
+        protected readonly Dictionary<string, IContentSource> sources = new Dictionary<string, IContentSource>();
 
         private readonly VirtualPathProvider provider;
 
@@ -17,7 +17,7 @@ namespace Templar
             this.provider = provider;
         }
 
-        public void AddSource(string virtualPath, IContentSource source)
+        public virtual void AddSource(string virtualPath, IContentSource source)
         {
             sources.Add(virtualPath, source);
         }
