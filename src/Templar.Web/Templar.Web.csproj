@@ -92,6 +92,7 @@
     <Compile Include="Application\AppController.cs" />
     <Compile Include="Application\PlainSource.cs" />
     <Compile Include="Application\VirtualSource.cs" />
+    <Compile Include="Samples\angular\AngularTemplateSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\dependencies\a.js" />
@@ -107,6 +108,7 @@
     <Content Include="assets\hogan.js" />
     <Content Include="assets\plain.txt" />
     <Content Include="assets\underscore.js" />
+    <Content Include="Samples\angular\templates.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
