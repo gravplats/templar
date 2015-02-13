@@ -63,6 +63,7 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BundleExtensions.cs" />
+    <Compile Include="IncomingOnlyConstraint.cs" />
     <Compile Include="DependencyOrderer.cs" />
     <Compile Include="ITemplatingOptions.cs" />
     <Compile Include="TemplarDependencyScriptBundle.cs" />

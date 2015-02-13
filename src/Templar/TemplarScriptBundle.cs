@@ -52,7 +52,14 @@ namespace Templar
                 // assume that the virtual path starts with '~/'.
                 string url = virtualPath.Substring(2);
 
-                var route = new Route(url, new TemplarHandler(source));
+                var route = new Route(url, new TemplarHandler(source))
+                {
+                    Constraints = new RouteValueDictionary
+                    {
+                        { "incomingOnly", new IncomingOnlyConstraint() }
+                    }
+                };
+
                 RouteTable.Routes.Add(route);
             }
 
