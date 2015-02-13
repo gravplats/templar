@@ -19,7 +19,14 @@ namespace Templar
 
         public virtual void AddSource(string virtualPath, IContentSource source)
         {
-            sources.Add(virtualPath, source);
+            if (sources.ContainsKey(virtualPath))
+            {
+                sources[virtualPath] = source;
+            }
+            else
+            {
+                sources.Add(virtualPath, source);
+            }
         }
 
         public override bool DirectoryExists(string virtualDir)
