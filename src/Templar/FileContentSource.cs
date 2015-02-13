@@ -12,29 +12,26 @@ namespace Templar
 
         public string GetContent(HttpContextBase httpContext)
         {
-            string filename = "", path = "";
+            string virtualPath = "", absolutePath = "";
 
             try
             {
-                string root = GetRootPath().TrimEnd('/');
+                virtualPath = GetVirtualPath();
+                absolutePath = httpContext.Server.MapPath(virtualPath);
 
-                filename = GetFilename();
-                path = httpContext.Server.MapPath(root + "/" + filename);
-
-                string content = File.ReadAllText(path);
+                string content = File.ReadAllText(absolutePath);
 
                 return GetSubstitutions(httpContext)
                     .Aggregate(content, (script, substitution) => script.Replace(substitution.Key, substitution.Value));
             }
             catch (Exception ex)
             {
-                HandleException(ex, path, filename);
+                HandleException(ex, absolutePath, virtualPath);
                 throw;
             }
         }
 
-        protected abstract string GetRootPath();
-        protected abstract string GetFilename();
+        protected abstract string GetVirtualPath();
 
         protected virtual void HandleException(Exception ex, string path, string filename) { }
     }

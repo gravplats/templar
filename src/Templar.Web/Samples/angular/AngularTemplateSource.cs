@@ -33,14 +33,9 @@ namespace Templar.Web.Samples.angular
             }
         }
 
-        protected override string GetRootPath()
+        protected override string GetVirtualPath()
         {
-            return "~/Samples/angular";
-        }
-
-        protected override string GetFilename()
-        {
-            return "templates.js";
+            return "~/Samples/angular/templates.js";
         }
     }
 }
